@@ -3,6 +3,7 @@ import {
   ClipboardCheck,
   ShoppingCart,
   Gamepad2,
+  Link,
 } from "lucide-react";
 
 const projectItems = [
@@ -56,6 +57,24 @@ const projectItems = [
     Icon: Gamepad2,
     githubUrl: "",
     deployUrl: "https://game-recommender.marianonehuenlr.workers.dev/",
+  },
+  {
+    title: "Link in Bio",
+    description:
+      "Aplicación full-stack para crear y administrar un perfil público con links personalizados, autenticación, reordenamiento drag and drop, avatar y seguimiento de clics.",
+    technologies: [
+      "TypeScript",
+      "React",
+      "Vite",
+      "NestJS",
+      "PostgreSQL",
+      "Prisma",
+      "TanStack Query",
+      "Tailwind CSS",
+    ],
+    Icon: Link,
+    githubUrl: "https://github.com/MarianoNLR/link_in_bio",
+    deployUrl: "https://link-in-bio.marianonehuenlr.workers.dev/",
   },
 ];
 
