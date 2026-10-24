@@ -161,6 +161,144 @@ p {
   animation: grain-shift 14s linear infinite;
 }
 
+/* Aparición al hacer scroll (ver components/Reveal.jsx) */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Entrada escalonada del hero */
+.hero-in {
+  animation: hero-rise 0.8s ease-out both;
+}
+
+.hero-pop {
+  animation: hero-pop 1s ease-out both;
+}
+
+/* Avatar: flota y el glow respira */
+.avatar-float {
+  position: relative;
+  animation: avatar-float 6s ease-in-out infinite;
+}
+
+.avatar-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: var(--glow-avatar);
+  filter: blur(34px);
+  animation: glow-breathe 4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Cursor del texto tipeado (ver components/TypedText.jsx): no ocupa espacio, así no mueve el texto */
+.typed-text {
+  position: relative;
+}
+
+.typed-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0.22em;
+  height: 0.9em;
+  right: -0.14em;
+  width: 0.08em;
+  background: var(--color-icon);
+  animation: cursor-blink 1s steps(1) infinite;
+}
+
+/* Botones: brillo que cruza al hacer hover y feedback al presionar */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.28) 50%, transparent 65%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.btn-shine:not(:disabled):hover::after {
+  transform: translateX(120%);
+  transition: transform 0.75s ease;
+}
+
+.btn-shine:not(:disabled):active {
+  scale: 0.95;
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes avatar-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
 @keyframes orb-float-a {
   0%,
   100% {
@@ -209,7 +347,25 @@ p {
 
 @media (prefers-reduced-motion: reduce) {
   .bg-orb,
-  .bg-grain {
+  .bg-grain,
+  .avatar-float,
+  .avatar-glow,
+  .typed-text::after {
     animation: none;
+  }
+
+  .btn-shine::after {
+    display: none;
+  }
+
+  /* Sin movimiento: solo un fade corto */
+  .hero-in,
+  .hero-pop {
+    animation-name: hero-fade;
+  }
+
+  .reveal {
+    transform: none;
+    transition: opacity 0.6s ease-out;
   }
 }

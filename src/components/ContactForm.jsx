@@ -108,7 +108,7 @@ function ContactForm() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="rounded-lg w-full border border-[color-mix(in_oklab,var(--color-icon)_60%,var(--color-border))] bg-transparent px-6 py-2.5 text-sm font-semibold text-[var(--color-text-strong)] transition hover:border-[var(--color-icon)] hover:bg-[color-mix(in_oklab,var(--color-icon)_16%,transparent)] disabled:cursor-not-allowed disabled:opacity-70"
+          className="btn-shine rounded-lg w-full border border-[color-mix(in_oklab,var(--color-icon)_60%,var(--color-border))] bg-transparent px-6 py-2.5 text-sm font-semibold text-[var(--color-text-strong)] transition hover:border-[var(--color-icon)] hover:bg-[color-mix(in_oklab,var(--color-icon)_16%,transparent)] disabled:cursor-not-allowed disabled:opacity-70"
         >
           {status === 'loading' ? 'Enviando...' : 'Enviar mensaje'}
         </button>

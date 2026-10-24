@@ -1,3 +1,5 @@
+import Reveal from './Reveal.jsx'
+
 function About() {
   return (
     <section
@@ -5,14 +7,14 @@ function About() {
       className="scroll-mt-24 flex min-h-[100dvh] items-center rounded-2xl p-6 md:p-8"
     >
       <div className="w-full">
-        <div className="mb-8 text-start md:mb-10">
+        <Reveal className="mb-8 text-start md:mb-10">
           <h2 className="hero-title text-4xl font-bold tracking-tight text-[var(--color-text-strong)] md:text-5xl">
             Sobre mi
           </h2>
-        </div>
+        </Reveal>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center">
-          <div className="mx-auto max-w-xl space-y-4">
+          <Reveal delay={120} className="mx-auto max-w-xl space-y-4">
             <p className="leading-relaxed text-[var(--color-text)] md:text-lg">
               Me gradué de la Tecnicatura Universitaria en Programación en la Universidad
               Tecnológica Nacional, donde consolidé los fundamentos de desarrollo de software y el
@@ -22,9 +24,9 @@ function About() {
               Además, realicé cursos complementarios para ampliar mi perfil profesional y seguir
               creciendo como desarrollador FullStack.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="mx-auto w-full max-w-xl rounded-xl bg-transparent p-4 md:p-5">
+          <Reveal delay={240} className="mx-auto w-full max-w-xl rounded-xl bg-transparent p-4 md:p-5">
             <p className="text-lg font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
               Tecnologías y frameworks
             </p>
@@ -94,7 +96,7 @@ function About() {
                 </ul>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

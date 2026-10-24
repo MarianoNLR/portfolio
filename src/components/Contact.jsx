@@ -1,5 +1,6 @@
 import ContactForm from './ContactForm.jsx'
 import { Download } from 'lucide-react'
+import Reveal from './Reveal.jsx'
 
 function Contact() {
   const cvUrl = `${import.meta.env.BASE_URL}Mariano_Nehu%C3%A9n_Lotero_Rol%C3%B3n_CV.pdf`
@@ -9,11 +10,11 @@ function Contact() {
       id="contact"
       className="scroll-mt-24 flex min-h-[100dvh] flex-col justify-center bg-transparent p-6 py-12 md:p-8"
     >
-      <div className="mb-8 text-center md:mb-10">
+      <Reveal className="mb-8 text-center md:mb-10">
         <h2 className="hero-title text-4xl font-bold tracking-tight text-[var(--color-text-strong)] md:text-5xl">
           Contacto
         </h2>
-      </div>
+      </Reveal>
 
         <p className="mx-auto w-full text-center leading-relaxed text-[var(--color-text)]">
             Te gustaría que trabajemos juntos? Contáctame y conversemos.
@@ -28,9 +29,11 @@ function Contact() {
             </a>
         </p>
 
-      <ContactForm />
+      <Reveal delay={120}>
+        <ContactForm />
+      </Reveal>
 
-      <div className="mt-6 flex flex-wrap gap-3 justify-center">
+      <Reveal delay={240} className="mt-6 flex flex-wrap gap-3 justify-center">
         {/* <a
           href="mailto:marianonehuenlr@gmail.com"
           className="rounded-xl bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-[var(--color-accent-foreground)] transition hover:bg-[var(--color-accent-hover)]"
@@ -41,7 +44,7 @@ function Contact() {
           href="https://github.com/MarianoNLR"
           target="_blank"
           rel="noreferrer"
-          className="rounded-xl border border-[var(--color-border)] bg-transparent px-5 py-3 text-sm font-semibold text-[var(--color-text-strong)] transition hover:border-[var(--color-icon)] hover:text-[var(--color-icon)]"
+          className="btn-shine rounded-xl border border-[var(--color-border)] bg-transparent px-5 py-3 text-sm font-semibold text-[var(--color-text-strong)] transition hover:border-[var(--color-icon)] hover:text-[var(--color-icon)]"
         >
           GitHub
         </a>
@@ -49,19 +52,19 @@ function Contact() {
           href="https://www.linkedin.com/in/mariano-lotero-rolon/"
           target="_blank"
           rel="noreferrer"
-          className="rounded-xl border border-[var(--color-border)] bg-transparent px-5 py-3 text-sm font-semibold text-[var(--color-text-strong)] transition hover:border-[var(--color-icon)] hover:text-[var(--color-icon)]"
+          className="btn-shine rounded-xl border border-[var(--color-border)] bg-transparent px-5 py-3 text-sm font-semibold text-[var(--color-text-strong)] transition hover:border-[var(--color-icon)] hover:text-[var(--color-icon)]"
         >
           LinkedIn
         </a>
         <a
           href={cvUrl}
           download="CV-Mariano-Lotero-Rolon.pdf"
-          className="flex items-center gap-2 rounded-xl border border-[var(--color-border)] bg-transparent px-5 py-3 text-sm font-semibold text-[var(--color-text-strong)] transition hover:border-[var(--color-icon)] hover:text-[var(--color-icon)]"
+          className="btn-shine flex items-center gap-2 rounded-xl border border-[var(--color-border)] bg-transparent px-5 py-3 text-sm font-semibold text-[var(--color-text-strong)] transition hover:border-[var(--color-icon)] hover:text-[var(--color-icon)]"
         >
           <Download className="h-4 w-4" aria-hidden="true" />
           Descargar CV
         </a>
-      </div>
+      </Reveal>
     </section>
   )
 }

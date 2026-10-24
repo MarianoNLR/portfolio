@@ -5,6 +5,7 @@ import {
   Gamepad2,
   Link,
 } from "lucide-react";
+import Reveal from "./Reveal.jsx";
 
 const projectItems = [
   {
@@ -84,26 +85,26 @@ function Projects() {
       id="projects"
       className="scroll-mt-24 flex min-h-dvh flex-col justify-center py-12"
     >
-      <div className="mb-8 text-center md:mb-10">
+      <Reveal className="mb-8 text-center md:mb-10">
         <h2 className="hero-title text-4xl font-bold tracking-tight text-(--color-text-strong) md:text-5xl">
           Proyectos
         </h2>
-      </div>
+      </Reveal>
 
       <div className="grid gap-4 md:grid-cols-3">
-        {projectItems.map((project) => {
+        {projectItems.map((project, index) => {
           const Icon = project.Icon;
 
           return (
+            <Reveal key={project.title} delay={(index % 3) * 120} className="h-full">
             <article
-              key={project.title}
-              className="flex h-full flex-col rounded-2xl border border-(--color-border) bg-(--color-bg-elevated) p-4 transition hover:-translate-y-0.5 hover:border-(--color-border-strong) md:p-5"
+              className="group flex h-full flex-col rounded-2xl border border-(--color-border) bg-(--color-bg-elevated) p-4 transition duration-300 hover:-translate-y-1.5 hover:border-(--color-icon) hover:shadow-[0_14px_40px_-14px_color-mix(in_oklab,var(--color-icon)_55%,transparent)] md:p-5"
             >
               <div className="mb-4 aspect-video w-full rounded-xl border border-(--color-border) bg-[color-mix(in_oklab,var(--color-bg)_76%,transparent)]">
                 <div className="flex h-full items-center justify-center rounded-xl border border-dashed border-(--color-border-strong)/60">
                   <Icon
                     aria-hidden="true"
-                    className="h-14 w-14 text-(--color-icon) md:h-16 md:w-16"
+                    className="h-14 w-14 text-(--color-icon) transition duration-300 group-hover:scale-110 group-hover:-rotate-6 md:h-16 md:w-16"
                     strokeWidth={1.8}
                   />
                 </div>
@@ -121,7 +122,7 @@ function Projects() {
                   {project.technologies.map((technology) => (
                     <li
                       key={technology}
-                      className="rounded-md border border-(--color-border-strong)/70 px-2.5 py-1 text-xs text-(--color-text-strong)"
+                      className="rounded-md border border-(--color-border-strong)/70 px-2.5 py-1 text-xs text-(--color-text-strong) transition duration-200 hover:-translate-y-0.5 hover:border-(--color-icon) hover:text-(--color-icon)"
                     >
                       {technology}
                     </li>
@@ -136,7 +137,7 @@ function Projects() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex min-w-27.5 items-center justify-center rounded-xl border border-(--color-border-strong) bg-[color-mix(in_oklab,var(--color-icon)_16%,transparent)] px-4 py-2.5 text-sm font-semibold text-(--color-text-strong) transition hover:-translate-y-0.5 hover:border-(--color-icon) hover:bg-[color-mix(in_oklab,var(--color-icon)_24%,transparent)]"
+                          className="btn-shine inline-flex min-w-27.5 items-center justify-center rounded-xl border border-(--color-border-strong) bg-[color-mix(in_oklab,var(--color-icon)_16%,transparent)] px-4 py-2.5 text-sm font-semibold text-(--color-text-strong) transition hover:-translate-y-0.5 hover:border-(--color-icon) hover:bg-[color-mix(in_oklab,var(--color-icon)_24%,transparent)]"
                         >
                           GitHub
                         </a>
@@ -147,7 +148,7 @@ function Projects() {
                           href={project.deployUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex min-w-27.5 items-center justify-center rounded-xl bg-(--color-accent) px-4 py-2.5 text-sm font-semibold text-(--color-accent-foreground) transition hover:-translate-y-0.5 hover:bg-(--color-accent-hover)"
+                          className="btn-shine inline-flex min-w-27.5 items-center justify-center rounded-xl bg-(--color-accent) px-4 py-2.5 text-sm font-semibold text-(--color-accent-foreground) transition hover:-translate-y-0.5 hover:bg-(--color-accent-hover)"
                         >
                           Deploy
                         </a>
@@ -157,6 +158,7 @@ function Projects() {
                 </div>
               </div>
             </article>
+            </Reveal>
           );
         })}
       </div>
