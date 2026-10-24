@@ -8,7 +8,7 @@ const navItems = [
 function Header() {
   return (
     <header className="sticky top-0 z-30">
-      <div className="flex w-full items-center justify-between border-b border-[color-mix(in_oklab,var(--color-icon)_32%,var(--color-border))] bg-transparent px-4 py-6 shadow-[0_10px_28px_rgba(2,8,6,0.24)] backdrop-saturate-150 backdrop-blur-lg supports-[backdrop-filter]:bg-[color-mix(in_oklab,var(--color-bg)_26%,transparent)] md:px-6">
+      <div className="flex w-full items-center justify-between border-b border-[color-mix(in_oklab,var(--color-icon)_32%,var(--color-border))] bg-transparent px-4 py-6 shadow-[0_10px_28px_var(--shadow-header)] backdrop-saturate-150 backdrop-blur-lg supports-[backdrop-filter]:bg-[color-mix(in_oklab,var(--color-bg)_26%,transparent)] md:px-6">
         <a
           href="#hero"
           className="hero-title text-sm font-semibold tracking-wide text-[var(--color-text-strong)] md:text-base"

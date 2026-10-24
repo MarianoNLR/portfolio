@@ -31,7 +31,7 @@ function HeroSection() {
           <img
             src={profileImage}
             alt="Foto de Mariano Nehuen Lotero Rolon"
-            className="h-full w-full rounded-full border border-[var(--color-border-strong)]/70 object-cover shadow-[0_0_46px_rgba(124,242,189,0.42)]"
+            className="h-full w-full rounded-full border border-[var(--color-border-strong)]/70 object-cover shadow-[0_0_46px_var(--glow-avatar)]"
           />
         </div>
       </div>
